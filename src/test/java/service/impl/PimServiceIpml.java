@@ -1,13 +1,13 @@
 package service.impl;
 
 import lombok.Getter;
-//import lombok.Setter;
 import model.PIMData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import service.PimService;
+import utils.UploadFile;
 
 import java.util.UUID;
 
@@ -48,13 +48,13 @@ public class PimServiceIpml implements PimService {
 
     @Override
     public void emptyDataUpdate() throws InterruptedException {
-
+        //todo...
 
     }
 
     @Override
     public void updateEmployee() throws InterruptedException {
-
+        //todo...
     }
 
     //Personal Detail Page - Màn save
@@ -96,7 +96,7 @@ public class PimServiceIpml implements PimService {
 
     @Override
     public void enterAgainEmployeeForSave(PIMData pimData) throws InterruptedException {
-    //nhâp lại dữ liệu mới
+        //nhâp lại dữ liệu mới
         //first name
         driver.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div/div/div[2]/div[1]/div[2]/input")).sendKeys(pimData.getFirstNamep());
         Thread.sleep(1000);
@@ -126,10 +126,6 @@ public class PimServiceIpml implements PimService {
 
     @Override
     public void emptySaveEmployee() throws InterruptedException {
-        //click btn add
-//        driver.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div[2]/div[1]/button")).click();
-//        Thread.sleep(1000);
-        // clear data
         clearDataEmployee();
         Thread.sleep(4000);
         //click btn save
@@ -155,16 +151,13 @@ public class PimServiceIpml implements PimService {
         driver.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/input")).sendKeys(pimData.getEmployeeId());
         Thread.sleep(1000);
         //btn change ava
-//        try{
-//            WebElement imageUpload = driver.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[1]/div/div[2]/div/button"));
-//            imageUpload.click();
-//            Thread.sleep(2000);
-//            imageUpload.sendKeys(System.getProperty("user/dir") + "\\file\\shin-image.jpg");
-//            Thread.sleep(1000);
-//            imageUpload.sendKeys(pimData.getImagePath());
-//        }catch(Exception e){
-//
-//        }
+        try {
+            WebElement imageUpload = driver.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[1]/div/div[2]/div/button"));
+            imageUpload.click();
+            UploadFile.upload(pimData.getImagePath());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
         //btn save add
         driver.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]")).click();
         Thread.sleep(1000);

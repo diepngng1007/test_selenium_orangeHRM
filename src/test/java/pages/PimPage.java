@@ -34,14 +34,9 @@ public class PimPage {
         if (pimService.checkValidate()) {
             pimService.addEmployee(setupValidData());
         }
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button"))); // Chờ nút lưu xuất hiện
-
     }
 
     public void saveChangeEmployee() throws InterruptedException {
-//        pimService.tabPIM();
-//        this.addEmployee();
         pimService.emptySaveEmployee();
         checkInvalidPersonal();
         if (pimService.enterInvalidDate()) {
@@ -56,7 +51,7 @@ public class PimPage {
                 .firstName("nguyen")
                 .middleName("ngoc")
                 .lastName("diep")
-                .imagePath(System.getProperty("user/dir") + "\\file\\shin-image.jpg")
+                .imagePath("C:\\Users\\admin\\Pictures\\Hinh-Nen-cu-Shin.jpg")
                 .employeeId(pimService.randomIDEmployee())
                 .build();
     }
@@ -66,7 +61,7 @@ public class PimPage {
                 .firstName("nguyen")
                 .middleName("ngoc")
                 .lastName("diep")
-                .imagePath(System.getProperty("user/dir") + "\\file\\shin-image.jpg")
+                .imagePath("C:\\Users\\admin\\Pictures\\Hinh-Nen-cu-Shin.jpg")
                 .employeeId("abc12345678910")
                 .build());
     }

@@ -21,7 +21,6 @@ public interface PimService {
 
     void clearAddFields() throws InterruptedException;
 
-
     //for update
     void emptyDataUpdate() throws InterruptedException;
 
@@ -35,8 +34,5 @@ public interface PimService {
     void enterAgainEmployeeForSave(PIMData pimData) throws InterruptedException;
 
     void emptySaveEmployee() throws InterruptedException;
-
-//    void chooseDate() throws InterruptedException;
-
 
 }
